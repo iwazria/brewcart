@@ -3,8 +3,9 @@
 BrewCart Static began as a twin of the BrewCart PHP edition — same design
 and ordering flow, rebuilt as **pure frontend code** — and has since been
 rebranded as an **American demo shop** ("Liberty Roast Coffee", Austin TX,
-prices in US dollars) with an **interactive 3D coffee cup** in the hero and
-3D tilt on the menu cards. There is no server, no database, no admin panel
+prices in US dollars) with an **animated 3D pouring scene** in the hero —
+a kettle pours coffee into the cup, the level rises, ripples and splashes
+play at the surface — plus 3D tilt on the menu cards. There is no server, no database, no admin panel
 and no build step — just files you can open in a browser or drop onto any
 static host. (The PHP edition still ships the original demo content.)
 
@@ -48,7 +49,7 @@ menu wording and prices are the American set in `data.js`.
 | `style.css` | All styling (adapted from the PHP edition's stylesheet) |
 | `data.js` | **The control panel:** shop settings (`CONFIG`), categories, and the whole menu (`MENU_ITEMS`) |
 | `app.js` | All logic: header/footer, rendering, cart, checkout, orders, WhatsApp links |
-| `site3d.js` | 3D extras: the interactive Three.js coffee cup in the hero + mouse tilt on menu cards |
+| `site3d.js` | 3D extras: the animated Three.js pouring scene in the hero (kettle, stream, rising coffee, splashes) + mouse tilt on menu cards |
 
 Every page loads `style.css`, `data.js`, then `app.js` — in that order.
 
