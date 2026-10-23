@@ -421,3 +421,18 @@ img { max-width: 100%; }
   .cart-table tr { display: block; border-top: 1px solid var(--border); padding: 8px 0; }
   .cart-table td { display: flex; justify-content: space-between; align-items: center; border: none; padding: 6px 14px; }
 }
+
+/* --- 3D hero + card tilt (site3d.js) ----------------------------------- */
+.hero { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.hero-inner { flex: 1 1 360px; }
+.hero-3d { flex: 0 1 380px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+.hero-3d canvas {
+  width: 100%; max-width: 380px; aspect-ratio: 1 / 1; height: auto;
+  display: block; margin: 0 auto; cursor: grab; touch-action: pan-y;
+}
+.hero-3d canvas:active { cursor: grabbing; }
+.hero-3d-hint {
+  margin-top: 4px; font-size: 0.78em; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #EADFCB; opacity: 0.85;
+}
+.item-card.tilting { transition: transform 0.08s ease-out, box-shadow 0.25s ease; }

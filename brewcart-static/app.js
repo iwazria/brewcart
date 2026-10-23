@@ -31,7 +31,7 @@ function esc(value) {
     .replace(/'/g, "&#39;");
 }
 
-// Format a price the same way the PHP money() helper did: "Rs 2,850.00".
+// Format a price the same way the PHP money() helper did: "$2,850.00".
 function money(amount) {
   var n = Number(amount) || 0;
   return CONFIG.currencySymbol + n.toLocaleString("en-US", {

@@ -1,12 +1,16 @@
 # BrewCart — Static Edition (HTML + CSS + JavaScript only)
 
-BrewCart Static is a twin of the BrewCart PHP edition: the same branding,
-photos, menu and design, rebuilt as **pure frontend code**. There is no
-server, no database, no admin panel and no build step — just files you can
-open in a browser or drop onto any static host.
+BrewCart Static began as a twin of the BrewCart PHP edition — same design
+and ordering flow, rebuilt as **pure frontend code** — and has since been
+rebranded as an **American demo shop** ("Liberty Roast Coffee", Austin TX,
+prices in US dollars) with an **interactive 3D coffee cup** in the hero and
+3D tilt on the menu cards. There is no server, no database, no admin panel
+and no build step — just files you can open in a browser or drop onto any
+static host. (The PHP edition still ships the original demo content.)
 
-**Tech:** plain HTML, one CSS file, and vanilla JavaScript (no libraries,
-no frameworks). Works from `file://` and from any static hosting.
+**Tech:** plain HTML, one CSS file, and vanilla JavaScript, plus Three.js
+(CDN) for the 3D cup only — if it fails to load, the site works unchanged.
+No frameworks, no build step. Works from `file://` and from any static hosting.
 
 ---
 
@@ -22,10 +26,11 @@ no frameworks). Works from `file://` and from any static hosting.
 | Payments | Cash / bank transfer recorded on the order | Same methods, same wording — the customer tells the shop via WhatsApp |
 | Hosting needed | PHP + MySQL (cPanel etc.) | Any static host, or even a USB stick |
 
-Everything else is identical on purpose: same 13 sample menu items, same
-prices, same Regular/Large options (+Rs 80), same delivery-fee rule
-(Rs 150 under Rs 2,000, free at/above), same order-number format
-(`BC-261023-A3F9K2`), same colors, fonts and layout.
+The ordering flow deliberately mirrors the PHP edition: 13 sample menu
+items, size options (12/16/20 oz), a delivery-fee rule ($4.99 under a $35
+subtotal, free at/above), the same order-number format
+(`BC-261023-A3F9K2`), and the same colors, fonts and layout. Demo branding,
+menu wording and prices are the American set in `data.js`.
 
 ---
 
@@ -43,6 +48,7 @@ prices, same Regular/Large options (+Rs 80), same delivery-fee rule
 | `style.css` | All styling (adapted from the PHP edition's stylesheet) |
 | `data.js` | **The control panel:** shop settings (`CONFIG`), categories, and the whole menu (`MENU_ITEMS`) |
 | `app.js` | All logic: header/footer, rendering, cart, checkout, orders, WhatsApp links |
+| `site3d.js` | 3D extras: the interactive Three.js coffee cup in the hero + mouse tilt on menu cards |
 
 Every page loads `style.css`, `data.js`, then `app.js` — in that order.
 

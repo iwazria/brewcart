@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home — Demo Coffee House</title>
-<meta name="description" content="Brewed with love, served with a smile">
+<title>Home — Liberty Roast Coffee</title>
+<meta name="description" content="Small-batch roasted, proudly American">
 <meta name="theme-color" content="#6F4E37">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Home — Demo Coffee House">
-<meta property="og:description" content="Brewed with love, served with a smile">
+<meta property="og:title" content="Home — Liberty Roast Coffee">
+<meta property="og:description" content="Small-batch roasted, proudly American">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M24 6c-3 4 3 6 0 10M36 6c-3 4 3 6 0 10' stroke='%23C89B5A' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M12 24h34v9a13 13 0 0 1-13 13h-8a13 13 0 0 1-13-13z' fill='%236F4E37'/%3E%3Cpath d='M46 27h2a8 8 0 0 1 0 16h-3' fill='none' stroke='%236F4E37' stroke-width='4'/%3E%3Crect x='9' y='52' width='40' height='4' rx='2' fill='%236F4E37'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,13 +24,19 @@
   <!-- Photo hero. app.js sets the background photo from CONFIG.heroImage. -->
   <section class="hero" id="hero">
     <div class="hero-inner">
-      <p class="hero-kicker" id="hero-kicker">Brewed with love, served with a smile</p>
-      <h1 id="hero-title">Demo Coffee House</h1>
+      <p class="hero-kicker" id="hero-kicker">Small-batch roasted, proudly American</p>
+      <h1 id="hero-title">Liberty Roast Coffee</h1>
       <p class="hero-sub">Order your favorite coffee online — pickup or delivery, ready when you are.</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="menu.html">View menu</a>
         <a class="btn btn-ghost-light" href="track.html">Track my order</a>
       </div>
+    </div>
+    <!-- Interactive 3D cup, built by site3d.js with Three.js.
+         If WebGL is unavailable the block hides itself. -->
+    <div class="hero-3d" id="hero-3d">
+      <canvas id="cup3d" aria-label="Interactive 3D model of a coffee cup"></canvas>
+      <p class="hero-3d-hint">Drag to spin the cup</p>
     </div>
   </section>
 
@@ -47,14 +53,15 @@
        the story photo (CONFIG.storyImage in data.js) with the shop's own. -->
   <section class="section story">
     <div class="story-media">
-      <img id="story-img" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" alt="Inside Demo Coffee House">
+      <img id="story-img" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" alt="Inside Liberty Roast Coffee">
     </div>
     <div class="story-text">
       <p class="section-kicker">Our story</p>
       <h2>A small counter with a big love for coffee</h2>
-      <p>We started with a single espresso machine, a stubborn belief that great
-      coffee should never be rushed, and beans sourced from growers we know by
-      name. Every cup is brewed to order — never sitting, never stale.</p>
+      <p>We started right here in Austin with a single espresso machine, a
+      stubborn belief that great coffee should never be rushed, and beans
+      roasted in small batches from farms we know by name. Every cup is
+      brewed to order — never sitting, never stale.</p>
       <p>Today the counter is a little bigger, but the idea is the same: honest
       coffee, warm pastries, and a place where the regulars are greeted by name.
       Order ahead and your drink will be waiting, exactly how you like it.</p>
@@ -79,15 +86,15 @@
     <div class="testimonial-grid">
       <figure class="testimonial-card">
         <blockquote>"The cappuccino tastes like it was made by someone who genuinely cares. I order ahead every morning and it is always ready when I walk in."</blockquote>
-        <figcaption><strong>Ayesha</strong> <span class="muted">— Gulberg</span></figcaption>
+        <figcaption><strong>Emily</strong> <span class="muted">— Downtown Austin</span></figcaption>
       </figure>
       <figure class="testimonial-card">
         <blockquote>"Finally, a cold brew in this neighborhood that is actually smooth. The delivery is quick and the cup arrives still ice cold."</blockquote>
-        <figcaption><strong>Bilal</strong> <span class="muted">— DHA Phase 5</span></figcaption>
+        <figcaption><strong>Marcus</strong> <span class="muted">— East Austin</span></figcaption>
       </figure>
       <figure class="testimonial-card">
-        <blockquote>"Their banana bread with a pour over is my weekend ritual now. Cozy place, kind people, and the online ordering just works."</blockquote>
-        <figcaption><strong>Mahnoor</strong> <span class="muted">— Clifton</span></figcaption>
+        <blockquote>"Their blueberry muffin with a pour over is my weekend ritual now. Cozy place, kind people, and the online ordering just works."</blockquote>
+        <figcaption><strong>Sarah</strong> <span class="muted">— Zilker</span></figcaption>
       </figure>
     </div>
   </section>
@@ -95,11 +102,11 @@
   <section class="section info-cards">
     <div class="info-card">
       <h3>Opening hours</h3>
-      <p data-fill="hours">Mon-Sun, 8am to 11pm</p>
+      <p data-fill="hours">Mon-Sun, 7am to 9pm</p>
     </div>
     <div class="info-card">
       <h3>Find us</h3>
-      <p><span data-fill="address">Main Street, Your City</span><br><span data-fill="phone">+92 300 0000000</span></p>
+      <p><span data-fill="address">1200 Congress Ave, Austin, TX</span><br><span data-fill="phone">+1 (512) 555-0147</span></p>
     </div>
     <div class="info-card">
       <h3>How ordering works</h3>
@@ -113,5 +120,7 @@
 <div id="toast" class="toast" role="status"></div>
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="site3d.js"></script>
 </body>
 </html>
