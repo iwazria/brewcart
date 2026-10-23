@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Demo Coffee House</title>
+<meta name="description" content="Brewed with love, served with a smile">
+<meta name="theme-color" content="#6F4E37">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M24 6c-3 4 3 6 0 10M36 6c-3 4 3 6 0 10' stroke='%23C89B5A' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M12 24h34v9a13 13 0 0 1-13 13h-8a13 13 0 0 1-13-13z' fill='%236F4E37'/%3E%3Cpath d='M46 27h2a8 8 0 0 1 0 16h-3' fill='none' stroke='%236F4E37' stroke-width='4'/%3E%3Crect x='9' y='52' width='40' height='4' rx='2' fill='%236F4E37'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main class="wrap">
+  <section class="section narrow">
+    <h1 class="page-title">Checkout</h1>
+
+    <div class="checkout-grid">
+      <!-- app.js validates this form, saves the order in this browser,
+           and sends you to success.html. -->
+      <form class="form" id="checkout-form" novalidate>
+
+        <h3>Your details</h3>
+        <div class="field">
+          <label for="f-name">Full name *</label>
+          <input id="f-name" type="text" name="name" maxlength="120" required>
+          <p class="field-error" data-error-for="name"></p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-phone">Phone *</label>
+            <input id="f-phone" type="tel" name="phone" maxlength="40" required>
+            <p class="field-error" data-error-for="phone"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email (optional)</label>
+            <input id="f-email" type="email" name="email" maxlength="120">
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+        </div>
+
+        <h3>Pickup or delivery?</h3>
+        <div class="radio-cards">
+          <label class="radio-card">
+            <input type="radio" name="order_type" value="pickup" checked>
+            <span><strong>Pickup</strong><small>Collect from the shop</small></span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="order_type" value="delivery">
+            <span><strong>Delivery</strong><small>Brought to your door</small></span>
+          </label>
+        </div>
+
+        <div class="field" data-address-wrap style="display:none">
+          <label for="f-address">Delivery address *</label>
+          <textarea id="f-address" name="address" rows="2" maxlength="500"></textarea>
+          <p class="field-error" data-error-for="address"></p>
+        </div>
+
+        <h3>Payment method</h3>
+        <div class="field">
+          <!-- app.js fills this with the methods valid for pickup/delivery. -->
+          <div id="payment-options"></div>
+          <p class="field-error" data-error-for="payment_method"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Order notes (optional)</label>
+          <textarea id="f-notes" name="notes" rows="2" maxlength="500" placeholder="Anything we should know?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-big">Place order</button>
+      </form>
+
+      <!-- Filled by app.js: lines, subtotal, delivery fee, total. -->
+      <aside class="order-summary" id="order-summary"></aside>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
