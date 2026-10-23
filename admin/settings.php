@@ -17,6 +17,8 @@ $fields = [
         'primary_color'   => ['Primary color', 'color', 'Main brand color: buttons, header, links.'],
         'accent_color'    => ['Accent color', 'color', 'Highlights: badges, hovers, prices.'],
         'logo_path'       => ['Logo image path', 'text', 'e.g. assets/logo.png. Leave empty to use a letter mark.'],
+        'hero_image'      => ['Home hero image URL', 'text', 'Big photo at the top of the home page. Paste a full image URL, or leave empty for the plain color hero.'],
+        'story_image'     => ['"Our story" image URL', 'text', 'Photo beside the Our story section on the home page. Paste a full image URL, or leave empty to hide the photo.'],
         'announcement'    => ['Announcement bar', 'text', 'Banner above the header. Leave empty to hide it.'],
     ],
     'Contact and hours' => [

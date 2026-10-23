@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $categoryId  = (int) ($_POST['category_id'] ?? 0);
         $description = trim((string) ($_POST['description'] ?? ''));
         $price       = $_POST['price'] ?? '';
+        $image       = trim((string) ($_POST['image'] ?? ''));
         $sortOrder   = (int) ($_POST['sort_order'] ?? 0);
         $isFeatured  = isset($_POST['is_featured']) ? 1 : 0;
         $isAvailable = isset($_POST['is_available']) ? 1 : 0;
@@ -30,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if (!is_numeric($price) || (float) $price < 0) {
             $errors[] = 'Price must be a number, 0 or more.';
+        }
+        if (strlen($image) > 255) {
+            $errors[] = 'Image URL is too long (max 255 characters).';
         }
         $catOk = ($categoryId === 0);
         foreach ($categories as $c) {
@@ -49,18 +53,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $catValue = $categoryId > 0 ? $categoryId : null;
         if ($itemId > 0) {
             $stmt = db()->prepare(
-                'UPDATE menu_items SET category_id = ?, name = ?, description = ?, price = ?,
+                'UPDATE menu_items SET category_id = ?, name = ?, description = ?, price = ?, image = ?,
                  is_featured = ?, is_available = ?, sort_order = ? WHERE id = ?'
             );
-            $stmt->execute([$catValue, $name, $description, (float) $price, $isFeatured, $isAvailable, $sortOrder, $itemId]);
+            $stmt->execute([$catValue, $name, $description, (float) $price, $image, $isFeatured, $isAvailable, $sortOrder, $itemId]);
             flash('success', 'Item updated.');
             redirect('items.php?action=edit&id=' . $itemId);
         } else {
             $stmt = db()->prepare(
-                'INSERT INTO menu_items (category_id, name, description, price, is_featured, is_available, sort_order)
-                 VALUES (?, ?, ?, ?, ?, ?, ?)'
+                'INSERT INTO menu_items (category_id, name, description, price, image, is_featured, is_available, sort_order)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
             );
-            $stmt->execute([$catValue, $name, $description, (float) $price, $isFeatured, $isAvailable, $sortOrder]);
+            $stmt->execute([$catValue, $name, $description, (float) $price, $image, $isFeatured, $isAvailable, $sortOrder]);
             flash('success', 'Item added.');
             redirect('items.php');
         }
@@ -151,6 +155,10 @@ require __DIR__ . '/inc/header.php';
     <div class="field">
       <label for="i-desc">Description</label>
       <textarea id="i-desc" name="description" rows="3"><?php echo esc($item['description'] ?? ''); ?></textarea>
+    </div>
+    <div class="field">
+      <label for="i-image">Image URL</label>
+      <input id="i-image" type="text" name="image" value="<?php echo esc($item['image'] ?? ''); ?>" maxlength="255" placeholder="https://… (leave empty for a letter tile)">
     </div>
     <div class="field-row">
       <div class="field">

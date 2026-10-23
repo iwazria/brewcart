@@ -96,6 +96,8 @@ INSERT INTO settings (`key`, `value`) VALUES ('currency_code', 'PKR');
 INSERT INTO settings (`key`, `value`) VALUES ('primary_color', '#6F4E37');
 INSERT INTO settings (`key`, `value`) VALUES ('accent_color', '#C89B5A');
 INSERT INTO settings (`key`, `value`) VALUES ('logo_path', '');
+INSERT INTO settings (`key`, `value`) VALUES ('hero_image', 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80');
+INSERT INTO settings (`key`, `value`) VALUES ('story_image', 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80');
 INSERT INTO settings (`key`, `value`) VALUES ('phone', '+92 300 0000000');
 INSERT INTO settings (`key`, `value`) VALUES ('address', 'Main Street, Your City');
 INSERT INTO settings (`key`, `value`) VALUES ('hours', 'Mon-Sun, 8am to 11pm');
@@ -117,19 +119,19 @@ INSERT INTO categories (name, sort_order) VALUES ('Bakery', 4);
 -- ----------------------------------------------------------------------------
 -- Sample menu items (ids 1-13 on a fresh install — replace with the real menu)
 -- ----------------------------------------------------------------------------
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (1, 'Espresso', 'A bold single shot of our house roast with rich golden crema on top.', 250.00, 1, 1);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (1, 'Cappuccino', 'Classic espresso with steamed milk and a thick cloud of foam, dusted with cocoa.', 350.00, 1, 2);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (1, 'Cafe Latte', 'Smooth espresso folded into silky steamed milk. Gentle, milky and comforting.', 380.00, 0, 3);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (1, 'Caramel Macchiato', 'Vanilla-kissed milk marked with espresso and a caramel drizzle.', 450.00, 0, 4);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (2, 'French Press', 'Coarse-ground beans steeped slow for a full round cup. Serves one.', 400.00, 0, 1);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (2, 'Pour Over (V60)', 'Clean and bright single-origin coffee, brewed to order just for you.', 450.00, 1, 2);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (2, 'Cold Brew', 'Steeped for 18 hours for a naturally sweet and low-acid coffee.', 480.00, 0, 3);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (3, 'Iced Latte', 'Espresso poured over cold milk and ice. Simple and refreshing.', 420.00, 0, 1);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (3, 'Iced Caramel Latte', 'Iced latte with caramel and a soft whipped cream top.', 500.00, 0, 2);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (3, 'Coffee Frappe', 'Blended iced coffee, thick frosty and dangerously easy to drink.', 520.00, 0, 3);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (4, 'Butter Croissant', 'Flaky and golden, baked fresh every morning.', 280.00, 0, 1);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (4, 'Chocolate Chip Cookie', 'Warm with a gooey center, baked in-house daily.', 220.00, 0, 2);
-INSERT INTO menu_items (category_id, name, description, price, is_featured, sort_order) VALUES (4, 'Banana Bread Slice', 'Moist banana bread with a hint of cinnamon. A quiet bestseller.', 260.00, 0, 3);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (1, 'Espresso', 'A bold single shot of our house roast with rich golden crema on top.', 250.00, 'https://images.unsplash.com/photo-1504630083234-14187a9df0f5?auto=format&fit=crop&w=800&q=80', 1, 1);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (1, 'Cappuccino', 'Classic espresso with steamed milk and a thick cloud of foam, dusted with cocoa.', 350.00, 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80', 1, 2);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (1, 'Cafe Latte', 'Smooth espresso folded into silky steamed milk. Gentle, milky and comforting.', 380.00, 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80', 0, 3);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (1, 'Caramel Macchiato', 'Vanilla-kissed milk marked with espresso and a caramel drizzle.', 450.00, 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80', 0, 4);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (2, 'French Press', 'Coarse-ground beans steeped slow for a full round cup. Serves one.', 400.00, 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80', 0, 1);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (2, 'Pour Over (V60)', 'Clean and bright single-origin coffee, brewed to order just for you.', 450.00, 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80', 1, 2);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (2, 'Cold Brew', 'Steeped for 18 hours for a naturally sweet and low-acid coffee.', 480.00, 'https://images.unsplash.com/photo-1517959105821-eaf2591984ca?auto=format&fit=crop&w=800&q=80', 0, 3);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (3, 'Iced Latte', 'Espresso poured over cold milk and ice. Simple and refreshing.', 420.00, 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80', 0, 1);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (3, 'Iced Caramel Latte', 'Iced latte with caramel and a soft whipped cream top.', 500.00, 'https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80', 0, 2);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (3, 'Coffee Frappe', 'Blended iced coffee, thick frosty and dangerously easy to drink.', 520.00, 'https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=800&q=80', 0, 3);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (4, 'Butter Croissant', 'Flaky and golden, baked fresh every morning.', 280.00, 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80', 0, 1);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (4, 'Chocolate Chip Cookie', 'Warm with a gooey center, baked in-house daily.', 220.00, 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80', 0, 2);
+INSERT INTO menu_items (category_id, name, description, price, image, is_featured, sort_order) VALUES (4, 'Banana Bread Slice', 'Moist banana bread with a hint of cinnamon. A quiet bestseller.', 260.00, 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', 0, 3);
 
 -- ----------------------------------------------------------------------------
 -- Sample size options (Regular / Large) for a few drinks

@@ -34,9 +34,14 @@ if ($featured) {
 
 require __DIR__ . '/includes/header.php';
 $returnTo = 'index.php';
+$heroImage = setting('hero_image', '');
 ?>
 
+<?php if ($heroImage !== ''): ?>
+<section class="hero hero--photo" style="background-image: linear-gradient(100deg, rgba(38, 25, 14, 0.88) 0%, rgba(38, 25, 14, 0.62) 55%, rgba(38, 25, 14, 0.30) 100%), url('<?php echo esc($heroImage); ?>');">
+<?php else: ?>
 <section class="hero">
+<?php endif; ?>
   <div class="hero-inner">
     <p class="hero-kicker"><?php echo esc(setting('tagline', '')); ?></p>
     <h1><?php echo esc(setting('store_name', 'BrewCart')); ?></h1>
@@ -61,6 +66,65 @@ $returnTo = 'index.php';
   </div>
 </section>
 <?php endif; ?>
+
+<!-- Sample story copy shipped as starter content. The shop owner should
+     replace this text (in index.php) and the story photo (Settings page)
+     with their own story before launch. -->
+<section class="section story">
+  <?php $storyImage = setting('story_image', ''); ?>
+  <?php if ($storyImage !== ''): ?>
+  <div class="story-media">
+    <img src="<?php echo esc($storyImage); ?>" alt="Inside <?php echo esc(setting('store_name', 'our coffee shop')); ?>">
+  </div>
+  <?php endif; ?>
+  <div class="story-text">
+    <p class="section-kicker">Our story</p>
+    <h2>A small counter with a big love for coffee</h2>
+    <p>We started with a single espresso machine, a stubborn belief that great
+    coffee should never be rushed, and beans sourced from growers we know by
+    name. Every cup is brewed to order — never sitting, never stale.</p>
+    <p>Today the counter is a little bigger, but the idea is the same: honest
+    coffee, warm pastries, and a place where the regulars are greeted by name.
+    Order ahead and your drink will be waiting, exactly how you like it.</p>
+    <a class="btn btn-ghost" href="menu.php">See what's brewing</a>
+  </div>
+</section>
+
+<!-- Sample gallery photos (Unsplash starter images). Replace with the
+     shop's own photos by editing this section in index.php. -->
+<section class="section gallery-section">
+  <div class="section-head">
+    <h2>Moments from the counter</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Coffee shop interior with guests at the counter" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80" alt="A quiet corner table with a cup of coffee" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=800&q=80" alt="Barista pouring latte art" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80" alt="Fresh coffee being brewed by hand" loading="lazy">
+  </div>
+</section>
+
+<!-- Sample testimonials: placeholder quotes shipped with the demo content.
+     Replace with real customer reviews before launch. -->
+<section class="section testimonials">
+  <div class="section-head">
+    <h2>What the neighbors say</h2>
+  </div>
+  <div class="testimonial-grid">
+    <figure class="testimonial-card">
+      <blockquote>"The cappuccino tastes like it was made by someone who genuinely cares. I order ahead every morning and it is always ready when I walk in."</blockquote>
+      <figcaption><strong>Ayesha</strong> <span class="muted">— Gulberg</span></figcaption>
+    </figure>
+    <figure class="testimonial-card">
+      <blockquote>"Finally, a cold brew in this neighborhood that is actually smooth. The delivery is quick and the cup arrives still ice cold."</blockquote>
+      <figcaption><strong>Bilal</strong> <span class="muted">— DHA Phase 5</span></figcaption>
+    </figure>
+    <figure class="testimonial-card">
+      <blockquote>"Their banana bread with a pour over is my weekend ritual now. Cozy place, kind people, and the online ordering just works."</blockquote>
+      <figcaption><strong>Mahnoor</strong> <span class="muted">— Clifton</span></figcaption>
+    </figure>
+  </div>
+</section>
 
 <section class="section info-cards">
   <div class="info-card">

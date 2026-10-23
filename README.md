@@ -11,10 +11,32 @@ build step, no Composer. It runs on ordinary cheap shared (cPanel) hosting.
 
 ---
 
+## What's new in v1.1
+
+- **Real photos everywhere:** the sample menu ships with a photo for every item,
+  plus a full-width photo hero and an "Our story" photo on the home page
+  (Unsplash starter images — replace them with the shop's own photos).
+- **New Settings fields:** *Home hero image URL* and *"Our story" image URL*
+  on the Settings page — swap the home page photography without touching code.
+  Clear the hero URL to fall back to the plain gradient hero.
+- **Richer home page:** photo hero, an "Our story" section, a photo gallery
+  strip, and customer testimonials (sample copy — replace with the real story
+  and real reviews; each block is marked with a comment in `index.php`).
+- **Professional type:** Fraunces serif headings + Inter body text (Google
+  Fonts), refined spacing, sticky header shadow, and menu cards with
+  fixed-ratio photos and a subtle hover zoom.
+- **Menu item photos in admin:** every item now has an *Image URL* field on
+  the Menu items page.
+- **Better sharing/search basics:** meta description, theme color, Open
+  Graph tags, and an inline SVG coffee-cup favicon.
+
+---
+
 ## Features
 
 **Customer site**
-- Home page with hero, featured items, hours/location cards, announcement bar
+- Home page with photo hero, featured items, Our story, gallery, testimonials,
+  hours/location cards, announcement bar
 - Menu with category filter and size/add-on options (e.g. Regular / Large)
 - Session cart with quantity updates, live totals, free-delivery progress hint
 - Checkout: pickup or delivery, address for delivery, order notes
@@ -26,10 +48,10 @@ build step, no Composer. It runs on ordinary cheap shared (cPanel) hosting.
 **Admin panel** (`/admin/`)
 - Dashboard: today's orders and revenue, pending orders, item and message counts
 - Orders: filter by status, view full details, update status step by step
-- Menu items: add/edit/delete, category, price, featured/homepage and available toggles
+- Menu items: add/edit/delete, category, price, photo URL, featured/homepage and available toggles
 - Per-item options: sizes and add-ons with price changes (e.g. Large +Rs 80)
 - Categories: add/edit/delete with sort order
-- Settings: store name, tagline, colors, logo, currency, phone, address, hours,
+- Settings: store name, tagline, colors, logo, hero + story images, currency, phone, address, hours,
   announcement, delivery fee, free-delivery threshold, bank details, admin email
 
 **Installer**
@@ -74,6 +96,7 @@ Everything below is on the admin **Settings** page — no code edits needed:
 - [ ] Store name, tagline, phone, address, opening hours
 - [ ] Primary color + accent color (the whole site re-themes instantly)
 - [ ] Logo image path (upload e.g. `assets/logo.png`, or leave empty for a letter mark)
+- [ ] Home hero image URL + "Our story" image URL (full photo URLs; clear the hero to use the plain color hero)
 - [ ] Currency symbol / code
 - [ ] Announcement bar text (or empty to hide)
 - [ ] Delivery fee + free-delivery threshold
